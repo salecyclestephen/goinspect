@@ -1,0 +1,24 @@
+{
+  "name": "goinspect",
+  "version": "1.0.0",
+  "description": "building surveying app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salecyclestephen/goinspect.git"
+  },
+  "author": "Stephen New",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salecyclestephen/goinspect/issues"
+  },
+  "homepage": "https://github.com/salecyclestephen/goinspect#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
