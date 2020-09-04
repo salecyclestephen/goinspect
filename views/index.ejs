@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<div class="container">
+	
+	<header class="jumbotron">
+		<!-- this container allows the spacing when down to mobile look just right-->
+		<div class="container">
+			<h3>Saved Preservations</h3>
+			<p>
+				<a class="btn btn-primary btn-lg" href="/inspections">Back to Survey Selections</a>
+			</p>
+		</div>
+	</header>
+ 
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% if (preservations.length > 0) { %>
+		<div class="table-responsive">
+			<table class="table table-sm table-bordered">
+			  <thead>
+			    <tr>
+			      <th scope="col">Customer Name</th>
+			      <th scope="col">Address</th>
+			      <th scope="col">Date</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% preservations.forEach((preservation) => { %>
+			   
+				    <tr>
+				      <td><a href="/preservation/<%= preservation.id %>"><%= preservation.customername %></a></td>
+				      <td><%= preservation.address %></td>
+				      <td><%= preservation.date %></td>
+				    </tr>
+
+				<% }) %>
+			  </tbody>
+			</table>
+
+		</div>
+
+		<% } else { %>
+			<h3>No saved preservations</h3>
+		<% }  %>
+
+	</div>
+
+	<%- include('partials/footer') %>
+
+</div>
+

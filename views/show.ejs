@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<div class="container">
+	
+	<div class="jumbotron">
+		<!-- this container allows the spacing when down to mobile look just right-->
+		<div class="container">
+			<h3>Inspection For <%= preservation.address %></h3>
+			<a class="btn btn-primary btn-lg" href="/index">Back to Saved Surveys</a>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-lg-4">
+
+			<ul class="list-group">
+				<li class="list-group-item">Customer name: <b><%= preservation.customername %></b></li>
+				<li class="list-group-item">Address: <b><%= preservation.address %></b></li>
+				<li class="list-group-item">Inspector: <b><%= preservation.inspector %></b></li>
+				<li class="list-group-item">Area of concern: <b><%= preservation.concern %></b></li>
+				<li class="list-group-item">Date of Inspection: <b><%= preservation.date %></b></li>
+				<li class="list-group-item">Weather: <b><%= preservation.weather %></b></li>
+				<li class="list-group-item">House type: <b><%= preservation.housetype %></b></li>
+				<li class="list-group-item">House age: <b><%= preservation.age %></b></li>
+				<li class="list-group-item">Subfloor: <b><%= preservation.subfloor %></b></li>
+				<li class="list-group-item">Chimney: <b><%= preservation.chimney %></b></li>
+				<li class="list-group-item">Flashing: <b><%= preservation.flashing %></b></li>
+				<li class="list-group-item">Ambient Temp: <b><%= preservation.ambientemp %></b></li>
+				<li class="list-group-item">Humidity: <b><%= preservation.humidity %></b></li>
+				<li class="list-group-item">Surface Temp: <b><%= preservation.surfacetemp %></b></li>
+				<li class="list-group-item">Dew Point: <b><%= preservation.dewpoint %></b></li>
+				<li class="list-group-item">TRVs in all rooms: <b><%= preservation.trvs %></b></li>
+				<li class="list-group-item">Heating On: <b><%= preservation.heatingon %></b></li>
+				<li class="list-group-item">Windows Vented: <b><%= preservation.windowsvented %></b></li>
+				<li class="list-group-item">Postitive Pressure Test: <b><%= preservation.pressuretest %></b></li>
+				<li class="list-group-item">Notes: <b><%= preservation.notes %></b></li>
+			</ul>
+
+			<a class="btn btn-primary btn-lg" href="/index">Back</a>
+			<a class="btn btn-primary btn-lg" href="/index">Edit</a>
+			<a class="btn btn-primary btn-lg" href="/index">Delete</a>
+			<a class="btn btn-primary btn-lg" href="/index">Print</a>
+		</div>
+
+	</div>
+
+	<%- include('partials/footer') %>
+
+</div>
+

@@ -2,6 +2,7 @@ const express 	= require('express');
 const router 	= express.Router();
 const passport = require("passport");
 const User = require("../models/user");
+const Preservation = require("../models/preservation");
 
 router.get('/', function(req, res) {
 	res.render('home');
@@ -42,12 +43,88 @@ router.post('/login', passport.authenticate('local',  {
 	}), function(req, res) {
 });
 
-router.get('/register', function(req, res) {
-	res.render('register');
+router.get('/login', function(req, res) {
+	res.render('login');
 });
 
-router.get('/inspections', function(req, res) {
+// inspection options
+router.get('/inspections', isLoggedIn, function(req, res) {
 	res.render('inspections');
 });
+
+// preservation survey
+router.get('/preservation', isLoggedIn, function(req, res) {
+	res.render('preservation');
+});
+
+// save the preservation survey
+router.post('/preservation', function(req, res) {
+	const post = new Preservation(req.body);
+ 
+    post.save(function(err, user) {
+        if (err) {
+        	console.log(err);
+    	}
+        return res.redirect('/index');
+    });
+});
+
+// show the selected preservation survey
+router.get('/preservation/:id', function(req, res) {
+	Preservation.findById(req.params.id, function(err, preservation){
+		if (err) {
+			console.log('something went wrong show ' + err);
+		} else {
+			res.render('show', {preservation: preservation});
+		}
+	});
+});
+
+// show ALL saved surveys
+router.get('/index', isLoggedIn, function(req, res) {
+	Preservation.find({}, function(err, preservations) {
+		if (err) {
+			console.log('find failed....');
+		} else {
+			res.render('index', {preservations: preservations});
+		}
+	})
+});
+
+// get the actual saved surveys
+
+
+// LOGOUT REQUEST - logout comes from passport
+router.get('/logout', function(req, res) {
+	// destroy the session
+	req.logout();
+	res.redirect('/');
+});
+
+
+// All other routes
+router.get('*', function(req, res) {
+	res.redirect('/inspections');
+})
+
+/*
+
+	MIDDLEWARE - THREE PARAMS
+	1. REQUEST
+	2. RESPONE
+	3. NEXT FUNCTION
+
+*/
+
+
+// middleware function to check user is logged in
+// request, response and next, move onto callback in the function where this is used
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/login');
+};
+
 
 module.exports = router;

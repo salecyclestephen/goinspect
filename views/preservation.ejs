@@ -1,0 +1,262 @@
+<%- include('partials/header') %>
+<div class="container">
+
+
+	<div class="row">
+		<h1 style="text-align: center;">Preservation Survey</h1>
+
+		<!-- 30% of the container and zero on the top and bottom and auto left and right -->
+		<div class="col-lg-10">
+
+			<form method="POST" action="/preservation" class="form-horizontal" _lpchecked="1">
+				<fieldset>
+    			<legend>Complete the details below</legend>
+					<!-- from-group > creates a group and gives the elements space -->
+					<div class="form-group">
+						<label for="customername" class="col-lg-4 control-label">Customer Name: </label>
+						<div class="col-lg-6">
+							<input type="text" name="customername" id="customername" class="form-control" required>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="address" class="col-lg-4 control-label">Customer Address: </label><br>
+						<div class="col-lg-6">
+							<input type="text" name="address" id="address" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inspector" class="col-lg-4 control-label">Inspector: </label>
+						<div class="col-lg-6">
+							<select id="inspector" name="inspector" class="form-control" required>
+								<option value='Michael Youll'>Michael Youll</option>
+								<option value='Stephen New'>Stephen New</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="concern" class="col-lg-4 control-label">Area of concern: </label>
+						<div class="col-lg-6">
+							<input type="text" name="concern" id="concern" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="date" class="col-lg-4 control-label">Date: </label>
+						<div class="col-lg-6">
+							<input type="date" name="date" id="date" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="weather" class="col-lg-4 control-label">Today's weather: </label>
+						<div class="col-lg-6">
+							<select id="weather" name="weather" class="form-control" required>
+								<option value='sunny'>Sunny</option>
+								<option value='rain'>Raining</option>
+								<option value='snow'>Snowing</option>
+								<option value='overcast'>Overcast</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="housetype" class="col-lg-4 control-label">House Style: </label>
+						<div class="col-lg-6">
+							<select id="housetype" name="housetype" class="form-control" required>
+								<option value='detached'>Detached</option>
+								<option value='bungalow'>Bungalow</option>
+								<option value='linkedterrrace'>Linked Terrace</option>
+								<option value='semi'>Semi Detached</option>
+								<option value='flat'>Flat</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="age" class="col-lg-4 control-label">Property Age: </label>
+						<div class="col-lg-6">
+							<input type="text" name="age" id="age" class="form-control" required>
+						</div>
+					</div>
+
+					<div class="form-group">
+				      <label class="col-lg-4 control-label">Subfloor: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="subfloor" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="subfloor" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label class="col-lg-4 control-label">Chimney: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="chimney" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="chimney" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label class="col-lg-4 control-label">Flashing: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="flashing" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="flashing" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+			    <div class="form-group">
+					<label for="concern" class="col-lg-4 control-label">Ambient Temp: </label>
+					<div class="col-lg-6">
+						<input type="text" name="ambientemp" id="ambientemp" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="concern" class="col-lg-4 control-label">Relative Humidity: </label>
+					<div class="col-lg-6">
+						<input type="text" name="humidity" id="humidity" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="concern" class="col-lg-4 control-label">Surface Temp: </label>
+					<div class="col-lg-6">
+						<input type="text" name="surfacetemp" id="surfacetemp" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="concern" class="col-lg-4 control-label">Dew Point: </label>
+					<div class="col-lg-6">
+						<input type="text" name="dewpoint" id="dewpoint" class="form-control" required>
+					</div>
+				</div>
+
+			    <div class="form-group">
+				      <label class="col-lg-4 control-label">Positive Pressure Test: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="pressuretest" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="pressuretest" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label class="col-lg-4 control-label">TRVs in all rooms: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="trvs" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="trvs" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label class="col-lg-4 control-label">Heating on: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="heatingon" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="heatingon" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label class="col-lg-4 control-label">Windows Ventilated: </label>
+				      <div class="col-lg-6">
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="windowsvented" id="yes" value="yes" checked="">
+				            Yes
+				          </label>
+				        </div>
+				        <div class="radio">
+				          <label>
+				            <input type="radio" name="windowsvented" id="no" value="no">
+				            No
+				          </label>
+				        </div>
+				      </div>
+				  </div>
+
+				  <div class="form-group">
+				      <label for="notes" class="col-lg-4 control-label">Notes: </label>
+				      <div class="col-lg-6">
+				        <textarea class="form-control" rows="3" name="notes" id="notes" spellcheck="false"></textarea>
+				        <span class="help-block">Final notes for inspection.
+				        </span>
+				      </div>
+				    </div>
+
+				  <div class="form-group">
+				  	<label class="col-lg-4 control-label">Images: </label>
+				      <div class="col-lg-6">
+				  		<input type="file" accept="image/*" capture="camera">
+			  		</div>
+				  </div>
+
+				<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-4">
+			        <button type="reset" class="btn btn-default">Cancel</button>
+			        <button type="submit" class="btn btn-primary">Submit</button>
+			      </div>
+			    </div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+	<%- include('partials/footer') %>
+</div>
