@@ -2,7 +2,7 @@ const express 	= require('express');
 const router 	= express.Router();
 const passport = require("passport");
 const User = require("../models/user");
-const Preservation = require("../models/preservation");
+const Preservation = require("../models/Preservation");
 
 router.get('/', function(req, res) {
 	res.render('home');
