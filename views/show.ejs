@@ -12,8 +12,7 @@
 
 	<div class="row">
 
-		<div class="col-lg-4">
-
+		<div class="col-lg-6">
 			<ul class="list-group">
 				<li class="list-group-item">Customer name: <b><%= preservation.customername %></b></li>
 				<li class="list-group-item">Address: <b><%= preservation.address %></b></li>
@@ -35,14 +34,21 @@
 				<li class="list-group-item">Windows Vented: <b><%= preservation.windowsvented %></b></li>
 				<li class="list-group-item">Postitive Pressure Test: <b><%= preservation.pressuretest %></b></li>
 				<li class="list-group-item">Notes: <b><%= preservation.notes %></b></li>
+				<li class="list-group-item">Image: <b><%= preservation.image %></b></li>
 			</ul>
-
-			<a class="btn btn-primary btn-lg" href="/index">Back</a>
-			<a class="btn btn-primary btn-lg" href="/index">Edit</a>
-			<a class="btn btn-primary btn-lg" href="/index">Delete</a>
-			<a class="btn btn-primary btn-lg" href="/index">Print</a>
 		</div>
 
+	</div>
+
+	<div class="row">
+		<div class="col-lg-10">
+			<a class="btn btn-primary btn-lg" href="/index">Back</a>
+			<a class="btn btn-primary btn-lg" href="/preservation/<%= preservation.id %>/edit">Edit</a>
+			<form method="POST" action="/preservation/<%= preservation.id %>?_method=DELETE">
+				<button class="btn btn-primary btn-lg" onclick="return confirm('Are you sure to delete?')">Delete</button>
+			</form>
+			
+		</div>
 	</div>
 
 	<%- include('partials/footer') %>

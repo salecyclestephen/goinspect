@@ -21,7 +21,8 @@ const preservationSchema = new Schema({
     heatingon: { type: String },
     windowsvented: { type: String },
     pressuretest: { type: String },
-    notes: { type: String }
+    notes: { type: String },
+    image: { type: String }
 });
  
 module.exports = mongoose.model('Preservation', preservationSchema);

@@ -80,6 +80,40 @@ router.get('/preservation/:id', function(req, res) {
 	});
 });
 
+// EDIT ROUTE - combination of SHOW and UPDATE
+router.get('/preservation/:id/edit', isLoggedIn, function(req, res) {
+	Preservation.findById(req.params.id, function(err, preservation){
+		if (err) {
+			console.log('something went wrong edit route ' + err);
+		} else {
+			res.render('edit', {preservation: preservation});
+		}
+	});
+});
+
+// UPDATE ROUTE -- METHOD OVERRIDE NEEDED HERE
+router.put('/preservation/:id', function(req, res) {
+
+	Preservation.findByIdAndUpdate(req.params.id, req.body, function(err, updatedPreservation) {
+		if (err) {
+			console.log('something went wrong update route ' + err);
+		} else {
+			res.redirect('/preservation/' + req.params.id);
+		}
+	});
+});
+
+// DELETE (DESTROY) ROUTE
+router.delete('/preservation/:id', function(req, res) {
+	Preservation.findByIdAndRemove(req.params.id, function(err, updatedPreservation) {
+		if (err) {
+			console.log('something went wrong delete route ' + err);
+		} else {
+			res.redirect('/index');
+		}
+	});
+});
+
 // show ALL saved surveys
 router.get('/index', isLoggedIn, function(req, res) {
 	Preservation.find({}, function(err, preservations) {

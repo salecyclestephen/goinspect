@@ -1,28 +1,34 @@
 <%- include('partials/header') %>
-<div class="container">
 
+<div class="container">
+	
+	<div class="jumbotron">
+		<!-- this container allows the spacing when down to mobile look just right-->
+		<div class="container">
+			<h3>Inspection For <%= preservation.address %></h3>
+			<a class="btn btn-primary btn-lg" href="/index">Back to Survey</a>
+		</div>
+	</div>
 
 	<div class="row">
-		<h1 style="text-align: center;">Preservation Survey</h1>
 
-		<!-- 30% of the container and zero on the top and bottom and auto left and right -->
-		<div class="col-lg-10">
+		<div class="col-lg-4">
 
-			<form method="POST" action="/preservation" class="form-horizontal" _lpchecked="1">
+			<form method="POST" action="/preservation/<%= preservation.id %>?_method=PUT">
 				<fieldset>
     			<legend>Complete the details below</legend>
 					<!-- from-group > creates a group and gives the elements space -->
 					<div class="form-group">
 						<label for="customername" class="col-lg-4 control-label">Customer Name: </label>
 						<div class="col-lg-6">
-							<input type="text" name="customername" id="customername" class="form-control" required>
+							<input type="text" name="customername" id="customername" class="form-control" value="<%= preservation.customername %>" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="address" class="col-lg-4 control-label">Customer Address: </label><br>
 						<div class="col-lg-6">
-							<input type="text" name="address" id="address" class="form-control" required>
+							<input type="text" name="address" id="address" class="form-control" required value="<%= preservation.address %>">
 						</div>
 					</div>
 					<div class="form-group">
@@ -37,13 +43,13 @@
 					<div class="form-group">
 						<label for="concern" class="col-lg-4 control-label">Area of concern: </label>
 						<div class="col-lg-6">
-							<input type="text" name="concern" id="concern" class="form-control" required>
+							<input type="text" name="concern" id="concern" class="form-control" required value="<%= preservation.concern %>">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="date" class="col-lg-4 control-label">Date: </label>
 						<div class="col-lg-6">
-							<input type="date" name="date" id="date" class="form-control" required>
+							<input type="date" name="date" id="date" class="form-control" required value="<%= preservation.date %>">
 						</div>
 					</div>
 					<div class="form-group">
@@ -72,7 +78,7 @@
 					<div class="form-group">
 						<label for="age" class="col-lg-4 control-label">Property Age: </label>
 						<div class="col-lg-6">
-							<input type="text" name="age" id="age" class="form-control" required>
+							<input type="text" name="age" id="age" class="form-control" required value="age">
 						</div>
 					</div>
 
@@ -133,28 +139,28 @@
 			    <div class="form-group">
 					<label for="concern" class="col-lg-4 control-label">Ambient Temp: </label>
 					<div class="col-lg-6">
-						<input type="text" name="ambientemp" id="ambientemp" class="form-control" required>
+						<input type="text" name="ambientemp" id="ambientemp" class="form-control" required value="<%= preservation.ambientemp %>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="concern" class="col-lg-4 control-label">Relative Humidity: </label>
 					<div class="col-lg-6">
-						<input type="text" name="humidity" id="humidity" class="form-control" required>
+						<input type="text" name="humidity" id="humidity" class="form-control" required value="<%= preservation.humidity %>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="concern" class="col-lg-4 control-label">Surface Temp: </label>
 					<div class="col-lg-6">
-						<input type="text" name="surfacetemp" id="surfacetemp" class="form-control" required>
+						<input type="text" name="surfacetemp" id="surfacetemp" class="form-control" required value="<%= preservation.surfacetemp %>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="concern" class="col-lg-4 control-label">Dew Point: </label>
 					<div class="col-lg-6">
-						<input type="text" name="dewpoint" id="dewpoint" class="form-control" required>
+						<input type="text" name="dewpoint" id="dewpoint" class="form-control" required value="<%= preservation.dewpoint %>">
 					</div>
 				</div>
 
@@ -248,15 +254,22 @@
 
 				<div class="form-group">
 			      <div class="col-lg-10 col-lg-offset-4">
-			        <button type="reset" class="btn btn-default">Cancel</button>
 			        <button type="submit" class="btn btn-primary">Submit</button>
 			      </div>
 			    </div>
 
 				</fieldset>
+				
+
 			</form>
+
+			<a class="btn btn-primary btn-lg" href="/preservation/<%= preservation.address %>">Back</a>
 		</div>
+
 	</div>
 
 	<%- include('partials/footer') %>
+
 </div>
+
+<%- include('partials/header') %>
